@@ -1,31 +1,30 @@
-# Citizen Entitlement Estimator (React Prototype)
+# Citizen Entitlement Estimator
 
-A modular, accessible multi-step web application built with modern React. Designed as a prototype public sector digital service to calculate indicative entitlement for Scottish devolved social security benefits.
+An accessible, multi-step web application built with React to provide indicative entitlement estimates for devolved Scottish social security support.
 
----
-
-## Overview & Alignment with GDD Standards
-
-This project demonstrates core competencies aligned with the **Government Digital and Data (GDD) Profession Framework** for an **Associate Software Engineer / Junior Developer**:
-
-* **Software Design & Engineering:** Modular architecture separating UI presentation, stateful form orchestration, and pure business logic.
-* **Modern JavaScript Frameworks:** Built using React 18+ functional components, standard React Hooks (`useState`), and ES6+ modules.
-* **User-Centred Design & Accessibility (a11y):** Styled with high-contrast, clean public-sector visual patterns, explicit form labelling, keyboard navigation support, and progressive disclosure.
-* **Testability & Separation of Concerns:** Pure calculation algorithms isolated from UI rendering for straightforward unit testing.
-* **Security & Defensive Practices:** Client-side sanitization, strict input constraints (minimum/maximum bounds), and defensive state defaults to prevent edge-case injection or runtime crashes.
+The project demonstrates modular component architecture, accessible form patterns, and clean separation between business logic and UI state.
 
 ---
 
-## Architecture & Code Structure
+## Features
+
+- **Progressive Multi-Step Flow**: Guides users through household and caregiving criteria with clear, accessible inputs.
+- **Isolated Business Logic**: Benefit rules engines are decoupled from React components into pure, deterministic functions for testability.
+- **Accessible UI Patterns**: High-contrast, keyboard-navigable form controls designed around public sector digital usability guidelines.
+- **Defensive State Handling**: Client-side boundary validation to prevent malformed numeric inputs and edge-case calculation errors.
+
+---
+
+## Architecture
 
 ```text
 src/
 ├── components/
-│   ├── StepHousehold.jsx    # User input collection for household & qualifying criteria
-│   ├── StepCare.jsx         # Care hour input & conditional flow
-│   └── SummaryResult.jsx    # Dynamic result presentation & breakdown
+│   ├── StepHousehold.jsx    # Household criteria and child count inputs
+│   ├── StepCare.jsx         # Care hour inputs and validation flow
+│   └── SummaryResult.jsx    # Dynamic entitlement breakdown and summary
 ├── utils/
-│   └── calculationLogic.js  # Pure business logic functions for benefit entitlement
-├── App.jsx                  # State orchestration & step routing
-├── index.css                # Accessible, high-contrast Gov-style design system
-└── main.jsx                 # Application entry point
+│   └── calculationLogic.js  # Pure business logic functions for benefit calculations
+├── App.jsx                  # Main view orchestration and lifted state
+├── index.css                # Clean, accessible public service styling
+└── main.jsx                 # Application root entry point
